@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "85864862423",
+    "firebase_url": "https://breathalyzer-app-99c57-default-rtdb.firebaseio.com",
+    "project_id": "breathalyzer-app-99c57",
+    "storage_bucket": "breathalyzer-app-99c57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85864862423:android:8238eb12fb4453df72d692",
+        "android_client_info": {
+          "package_name": "com.example.breathalyzerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85864862423-36bt762m6flka4mu3vlnp9rn7t4tgudt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEmyDTpQ8KCx1nXmEP8XGGoGwTp_W7WdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85864862423-36bt762m6flka4mu3vlnp9rn7t4tgudt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
