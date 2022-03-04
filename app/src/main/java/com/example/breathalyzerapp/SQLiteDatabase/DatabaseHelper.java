@@ -12,14 +12,17 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.example.breathalyzerapp.Models.Sex;
 import com.example.breathalyzerapp.Models.User;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+//TODO:
+// Add function to find a user
+// Add function to edit a user
+// add functions for the readings table
+// insertReading, getAllReadings, clearAllReadings etc...
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private Context context;
@@ -32,8 +35,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String CREATE_TABLE_PROFILE = "CREATE TABLE " + Config.PROFILE_TABLE_NAME +
-                " (" + Config.COLUMN_PROFILE_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String CREATE_TABLE_PROFILE = "CREATE TABLE " + Config.USER_TABLE_NAME +
+                " (" + Config.COLUMN_USER_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + Config.COLUMN_FIRSTNAME + " TEXT NOT NULL, " + Config.COLUMN_LASTNAME + " TEXT NOT NULL, "
                 + Config.COLUMN_AGE + " TEXT NOT NULL, " + Config.COLUMN_SEX + " TEXT NOT NULL, " + Config.COLUMN_WEIGHT + " TEXT NOT NULL)";
 
@@ -65,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(Config.COLUMN_PROFILE_ID, user.getUserID());
+        contentValues.put(Config.COLUMN_USER_ID, user.getUserID());
         contentValues.put(Config.COLUMN_FIRSTNAME, user.getFirstname());
         contentValues.put(Config.COLUMN_LASTNAME, user.getLastname());
         contentValues.put(Config.COLUMN_AGE, user.getAge());
@@ -73,7 +76,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(Config.COLUMN_WEIGHT, user.getWeight());
 
         try {
-            id = db.insertOrThrow(Config.PROFILE_TABLE_NAME,null,contentValues);
+            id = db.insertOrThrow(Config.USER_TABLE_NAME,null,contentValues);
         }
         catch (SQLiteException e){
             Log.d(TAG,"EXCEPTION" + e);
@@ -85,20 +88,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
+    // delete user associated with ID
+    public boolean deleteUser(String userID){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{
+
+            return db.delete(Config.USER_TABLE_NAME,Config.COLUMN_USER_ID + "=" + userID,null ) > 0;
+        }
+        catch (SQLiteException e)
+        {
+            Log.d(TAG,"EXCEPTION" + e);
+            Toast.makeText(context,"Operation Failed!: " + e, Toast.LENGTH_LONG).show();
+        }
+        finally {
+            db.close();
+        }
+        return false;
+    }
+
     public List<User> getAllUsers(){
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;
 
         try{
-            cursor =db.query(Config.PROFILE_TABLE_NAME,null,null,null,null,null,null);
+            cursor =db.query(Config.USER_TABLE_NAME,null,null,null,null,null,null);
 
             if(cursor != null){
                 if(cursor.moveToFirst()){
                     List<User> userList = new ArrayList<>();
 
                     do {
-                        @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_PROFILE_ID));
+                        @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_USER_ID));
                         @SuppressLint("Range") String firstname = cursor.getString(cursor.getColumnIndex(Config.COLUMN_FIRSTNAME));
                         @SuppressLint("Range") String lastname = cursor.getString(cursor.getColumnIndex(Config.COLUMN_LASTNAME));
                         @SuppressLint("Range") int age = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_AGE));
@@ -126,5 +148,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return Collections.EMPTY_LIST;
     }
+
+
 
 }

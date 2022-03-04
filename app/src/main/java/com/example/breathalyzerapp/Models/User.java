@@ -31,6 +31,14 @@ public class User {
         this.gender = gender;
     }
 
+    public User(String firstname, String lastname, int age, double weight, String gender) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.age = age;
+        this.weight = weight;
+        this.gender = gender;
+    }
+
     public Integer getUserID() {
         return userID;
     }

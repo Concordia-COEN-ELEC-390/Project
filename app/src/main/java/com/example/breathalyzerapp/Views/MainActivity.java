@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -24,6 +25,11 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+//TODO:
+// IMPLEMENT ONCLICK FOR THE LISTVIEW TO GO TO THAT PROFILE AND SEE THE READINGS
+// NEED A PROFILE ACTIVITY
+// WE WILL THEN PASS THE PROFILE INFO AND READINGS TO THE ACTIVITY (LIKE IN ASSIGNMENT 2)
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,12 +56,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // If there are no profiles saved, the user is prompted to save one
+        if(arrayAdapter.isEmpty())
+        {
+            InsertUserDialogueFragment dialogueFragment = new InsertUserDialogueFragment();
+            dialogueFragment.show(getSupportFragmentManager(),"InsertUserFragment");
+        }
+
+    }
+
     // populate the UI
     void setupUI() {
         setViewByIDs();
         setSupportActionBar(mainToolbar);
 
         loadUsersListView();
+
+        mainFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InsertUserDialogueFragment dialogueFragment = new InsertUserDialogueFragment();
+                dialogueFragment.show(getSupportFragmentManager(),"InsertUserFragment");
+            }
+        });
     }
 
     // sets objects with IDs from resources
@@ -107,3 +134,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+

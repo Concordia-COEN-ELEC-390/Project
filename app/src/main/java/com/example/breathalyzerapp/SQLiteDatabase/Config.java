@@ -4,9 +4,9 @@ public class Config {
     public static final String DATABASE_NAME = "profiles-db";
     public static final int DATABASE_VERSION = 1;
 
-    // PROFILE TABLE
-    public static final String PROFILE_TABLE_NAME = "profile";
-    public static final String COLUMN_PROFILE_ID = "profileID";                   // primary key
+    // USER TABLE
+    public static final String USER_TABLE_NAME = "profile";
+    public static final String COLUMN_USER_ID = "profileID";                   // primary key
     public static final String COLUMN_FIRSTNAME = "firstname";
     public static final String COLUMN_LASTNAME = "lastname";
     public static final String COLUMN_AGE = "age";

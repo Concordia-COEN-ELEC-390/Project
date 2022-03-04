@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragmentLayout">
+
+   <EditText
+       android:id="@+id/firstName_editText"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="16dp"
+       android:hint="First Name"
+       android:inputType="text"
+       android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+       android:textSize="24sp"
+       />
+    <EditText
+        android:id="@+id/lastName_editText"
+        android:layout_below="@+id/firstName_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="Last Name"
+        android:inputType="text"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0-' "
+        android:textSize="24sp"
+        />
+
+    <EditText
+        android:id="@+id/age_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lastName_editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="Age"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/gender_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/age_editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:digits="MF"
+        android:hint="Gender (M/F)"
+        android:inputType="text"
+        android:maxLength="1"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/weight_fragment_editText"
+        android:layout_below="@+id/gender_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="Weight (KG)"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textSize="24sp"
+        />
+
+ <Button
+     android:id="@+id/userSaveButton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignRight="@id/weight_fragment_editText"
+     android:layout_below="@+id/weight_fragment_editText"
+     android:layout_marginTop="64dp"
+     android:layout_marginEnd="16dp"
+     android:text=" SAVE  "
+     android:textSize="16sp" />
+
+ <Button
+     android:id="@+id/userCancelButton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/weight_fragment_editText"
+     android:layout_marginTop="64dp"
+     android:layout_marginStart="16dp"
+     android:layout_marginRight="60dp"
+     android:layout_marginBottom="16dp"
+     android:layout_alignLeft="@+id/weight_fragment_editText"
+     android:text="CANCEL"
+     android:textSize="16sp" />
+
+
+</RelativeLayout>
