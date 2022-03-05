@@ -7,6 +7,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.content.Intent;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.example.breathalyzerapp.Models.FirebaseManager;
 import com.example.breathalyzerapp.Models.User;
 import com.example.breathalyzerapp.Models.sortUsersByFirstName;
+import com.example.breathalyzerapp.ProfileActivity;
 import com.example.breathalyzerapp.R;
 import com.example.breathalyzerapp.SQLiteDatabase.DatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -53,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         /* read live sensor data example */
         read();
-
     }
 
     @Override
@@ -114,6 +116,32 @@ public class MainActivity extends AppCompatActivity {
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,namesListText);
         mainListView.setAdapter(arrayAdapter);
+
+
+        // allows to navigate to profileview by clicking on the name in the list
+       mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {// int i is position and long l is id
+               if(i==0){
+                   startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+               }
+               else if(i==1){
+                   startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+               }
+               else if(i==2){
+                   startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+               }
+               else if(i==3){
+                   startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+               }
+               else if(i==4){
+                   startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+               }
+               else {
+
+               }
+           }
+       });
     }
 
     // read from the sensor
@@ -133,5 +161,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
 }
 
