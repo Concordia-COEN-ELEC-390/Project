@@ -1,8 +1,10 @@
-package com.example.breathalyzerapp;
+package com.example.breathalyzerapp.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.breathalyzerapp.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
