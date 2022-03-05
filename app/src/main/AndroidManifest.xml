@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreathalyzerApp">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".Views.ProfilesListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Views.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Views.MainActivity"

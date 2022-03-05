@@ -52,7 +52,7 @@ public class InsertUserDialogueFragment extends DialogFragment {
                 DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
                 if(validInput(firstname,lastname,age,gender,weight)) {
                     databaseHelper.insertUser(new User(firstname,lastname,Integer.parseInt(age),Double.parseDouble(weight),gender));
-                    ((MainActivity) getActivity()).loadUsersListView();
+                    ((ProfilesListActivity) getActivity()).loadUsersListView();
                     Objects.requireNonNull(getDialog()).dismiss();
                 }
             }
