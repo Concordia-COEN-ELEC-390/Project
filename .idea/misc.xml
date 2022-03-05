@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2595" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/layout/fragment_insert_user.xml" value="0.22826086956521738" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/layout/main_activity_toolbar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2595" />
+        <entry key="..\:/Downloaded/Project-main/Project-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2595" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
+        <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.308" />
+        <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/layout/activity_main.xml" value="0.38385416666666666" />
+        <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/layout/fragment_insert_user.xml" value="0.3875" />
+        <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/layout/main_activity_toolbar.xml" value="0.38385416666666666" />
+        <entry key="..\:/Users/okevl/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.3875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
