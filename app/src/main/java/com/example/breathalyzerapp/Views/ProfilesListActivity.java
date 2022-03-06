@@ -1,6 +1,7 @@
 package com.example.breathalyzerapp.Views;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -68,8 +69,11 @@ public class ProfilesListActivity extends AppCompatActivity {
     void setupUI() {
         setViewByIDs();
         setSupportActionBar(mainToolbar);
-
         loadUsersListView();
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         mainFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

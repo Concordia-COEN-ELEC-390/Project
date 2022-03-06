@@ -14,10 +14,13 @@
         android:theme="@style/Theme.BreathalyzerApp">
         <activity
             android:name=".Views.ProfilesListActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Views.MainActivity" />
         <activity
             android:name=".Views.ProfileActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Views.ProfilesListActivity" />
+
         <activity
             android:name=".Views.MainActivity"
             android:exported="true">
