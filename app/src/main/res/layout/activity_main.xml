@@ -44,7 +44,6 @@
             android:layout_alignStart="@+id/logoImageView"
             android:layout_marginStart="125dp"
             android:textSize="18sp"
-            android:text="[reading val]"
             />
 
         <Button
@@ -53,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/logoImageView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:text="Go To Profiles"
+            android:layout_marginTop="100dp"
+            android:text="View Profiles"
 
             android:textSize="24sp" />
 
@@ -66,7 +65,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="250dp"
             android:textSize="18sp"
-            android:text="*For Sprint 1 demo* Team 9"
+            android:text="Version 1.2"
             />
 
 

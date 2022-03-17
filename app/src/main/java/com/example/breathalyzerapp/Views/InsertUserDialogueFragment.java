@@ -68,7 +68,6 @@ public class InsertUserDialogueFragment extends DialogFragment {
         return view;
     }
 
-    // TODO: make adjustments to invalid options -- need to check if weight is valid (decimal place etc)
     private boolean validInput(String firstname, String lastname, String age, String gender, String weight){
         // Lastname & firstname taken care of in XML -- just check if empty
         if(firstname.equals("") || lastname.equals("")){

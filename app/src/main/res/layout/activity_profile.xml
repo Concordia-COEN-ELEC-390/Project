@@ -8,29 +8,47 @@
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" ><![CDATA[>
-
-
-
-
-
-        ]]>
-
-        <Button
-            android:id="@+id/newreading"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="630dp"
-            android:layout_marginEnd="0dp"
-            android:text="Take a new Reading" />
+        android:layout_height="match_parent" >
 
         <include
             android:id="@+id/main_toolbar"
             layout="@layout/main_activity_toolbar" />
+
+        <TextView
+            android:id="@+id/profileName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_toolbar"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            android:text="Profile Name" />
+
+        <ListView
+            android:id="@+id/readings_history_LV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileName_TV"
+            android:layout_marginTop="-1dp"
+            android:dividerHeight="4dp"
+            android:overScrollFooter="@color/cardview_dark_background"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="8dp"
+            tools:listitem="@android:layout/test_list_item"/>
+
+        <Button
+            android:id="@+id/new_reading_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="160sp"
+            android:scaleX="1.25"
+            android:scaleY="1.25"
+            android:text="New Reading"
+            android:textSize="18dp"
+            />
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

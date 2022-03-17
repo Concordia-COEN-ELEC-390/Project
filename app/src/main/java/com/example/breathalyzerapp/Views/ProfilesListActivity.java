@@ -27,10 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//TODO:
-// IMPLEMENT ONCLICK FOR THE LISTVIEW TO GO TO THAT PROFILE AND SEE THE READINGS
-// NEED A PROFILE ACTIVITY
-// WE WILL THEN PASS THE PROFILE INFO AND READINGS TO THE ACTIVITY (LIKE IN ASSIGNMENT 2)
+//TODO: MAKE NEW TOOLBAR AND CHANGE TV TO LOGO
 
 public class ProfilesListActivity extends AppCompatActivity {
 
