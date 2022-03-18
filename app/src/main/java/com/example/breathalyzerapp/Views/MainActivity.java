@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        read();
     }
 
     private void openProfiles() {
@@ -40,22 +39,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // read from the sensor
-    private void read() {
-        FirebaseManager firebase = new FirebaseManager();   // switching to SQLite
-
-        firebase.getDbRef().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Double sensorVal = snapshot.getValue(Double.class);
-                temp.setText("Reading: "+sensorVal);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-    }
 }

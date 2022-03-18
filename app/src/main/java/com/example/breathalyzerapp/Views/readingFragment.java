@@ -26,7 +26,7 @@ import java.util.Objects;
 public class readingFragment extends DialogFragment {
     protected TextView reading_TV, reading_value_tv;
     protected Button readingCancelButton, readingsSaveButton;
-    protected Double sensorVal = 0.0;   // DEFAULT
+    protected double readingVal = 0.0;
 
     public readingFragment() {
         // Required empty public constructor
@@ -37,6 +37,7 @@ public class readingFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_reading, container, false);
+        read();
 
         // ViewByIDs
         reading_TV = view.findViewById(R.id.reading_tv);
@@ -44,31 +45,15 @@ public class readingFragment extends DialogFragment {
         readingCancelButton = view.findViewById(R.id.readingCancelButton);
         readingsSaveButton = view.findViewById(R.id.readingSaveButton);
 
-        FirebaseManager firebase = new FirebaseManager();   // switching to SQLite
-
-        firebase.getDbRef().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                sensorVal = snapshot.getValue(Double.class);    //TODO: this is returning null for me
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-
-        reading_value_tv.setText(sensorVal.toString());
-        // TOAST DEBUG - CAN REMOVE WHEN WE GET A VALUE
-        Toast.makeText(getActivity(), "Reading: "+sensorVal,Toast.LENGTH_LONG).show();
-
 
         // save button
         readingsSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
                 // temporarily hardcoded to make sure it works
-                databaseHelper.insertReading(new Reading(1.0,"Date"));
+                databaseHelper.insertReading(new Reading(readingVal,"Date"));
                 ((ProfileActivity) getActivity()).loadReadingsListView();
                 Objects.requireNonNull(getDialog()).dismiss();
             }
@@ -83,6 +68,31 @@ public class readingFragment extends DialogFragment {
         });
 
         return view;
+    }
+
+    private void read() {
+        FirebaseManager firebase = new FirebaseManager();   // switching to SQLite // < -- yeah but this is just for the live reading
+
+        firebase.getDbRef().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    Double sensorVal = snapshot.getValue(Double.class);
+                    readingVal = sensorVal;
+                    String sensorString = Double.toString(sensorVal);
+                    reading_value_tv.setText(sensorString);
+                } catch (NullPointerException npe){
+                    reading_value_tv.setText("");
+                    Toast.makeText(getActivity(), "Reading Issue... ",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 }
