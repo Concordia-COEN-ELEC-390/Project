@@ -16,12 +16,13 @@
 
         <ImageView
             android:id="@+id/logoImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_below="@+id/main_toolbar"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="App logo"
+            android:layout_centerHorizontal="true"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
         <TextView

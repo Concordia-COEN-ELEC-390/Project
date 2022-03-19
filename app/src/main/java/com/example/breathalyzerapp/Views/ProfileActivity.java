@@ -88,7 +88,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void loadReadingsListView(){
         dbHelper = new DatabaseHelper(this);
         readingsList = dbHelper.getAllReadings();
-
         // sort readings list by timestamp - should be done by default
         // Collections.sort(readingsList,new sortReadingsByTimestamp()); // sortReadingsByTimestamp() needs to be implemented if necessary
 
