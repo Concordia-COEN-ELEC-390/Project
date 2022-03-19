@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreathalyzerApp">
         <activity
+            android:name=".Views.UndrunkActivity"
+            android:exported="false"
+            android:parentActivityName=".Views.ProfileActivity" />
+        <activity
             android:name=".Views.ProfilesListActivity"
             android:exported="false"
             android:parentActivityName=".Views.MainActivity" />
@@ -20,7 +24,6 @@
             android:name=".Views.ProfileActivity"
             android:exported="false"
             android:parentActivityName=".Views.ProfilesListActivity" />
-
         <activity
             android:name=".Views.MainActivity"
             android:exported="true">

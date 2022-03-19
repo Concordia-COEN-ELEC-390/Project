@@ -1,6 +1,7 @@
 package com.example.breathalyzerapp.Views;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.breathalyzerapp.Models.FirebaseManager;
 import com.example.breathalyzerapp.Models.Reading;
+import com.example.breathalyzerapp.Models.Sex;
+import com.example.breathalyzerapp.Models.UndrunkCalc;
 import com.example.breathalyzerapp.R;
 import com.example.breathalyzerapp.SQLiteDatabase.DatabaseHelper;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +29,7 @@ import java.util.Objects;
 
 public class readingFragment extends DialogFragment {
     protected TextView reading_TV, reading_value_tv;
-    protected Button readingCancelButton, readingsSaveButton;
+    protected Button readingCancelButton, readingsSaveButton, undrunkButton;
     protected double readingVal = 0.0;
 
     public readingFragment() {
@@ -44,6 +48,7 @@ public class readingFragment extends DialogFragment {
         reading_value_tv = view.findViewById(R.id.reading_value_tv);
         readingCancelButton = view.findViewById(R.id.readingCancelButton);
         readingsSaveButton = view.findViewById(R.id.readingSaveButton);
+        undrunkButton = view.findViewById(R.id.whenToDriveButton);
 
 
         // save button
@@ -52,7 +57,6 @@ public class readingFragment extends DialogFragment {
             public void onClick(View view) {
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
-                // temporarily hardcoded to make sure it works
                 databaseHelper.insertReading(new Reading(readingVal,"Date"));
                 ((ProfileActivity) getActivity()).loadReadingsListView();
                 Objects.requireNonNull(getDialog()).dismiss();
@@ -64,6 +68,18 @@ public class readingFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 Objects.requireNonNull(getDialog()).dismiss();
+            }
+        });
+
+        // Undrunk button
+        undrunkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UndrunkCalc temp = new UndrunkCalc(readingVal, 24, 75, Sex.MALE);           // TODO this properly eventually (right input not just defaults)
+                Intent intent = new Intent(getActivity(), UndrunkActivity.class);
+                intent.putExtra("initialBAC", temp.getInitialBAC());
+                intent.putExtra("timeEstimate", temp.getEstimatedLegalTime());
+                startActivity(intent);
             }
         });
 
