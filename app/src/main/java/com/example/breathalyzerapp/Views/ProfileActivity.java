@@ -5,7 +5,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,12 +28,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
 //TODO: MAKE NEW TOOLBAR AND CHANGE TV TO LOGO
 
 public class ProfileActivity extends AppCompatActivity {
+
+    protected String user_name;
+    protected Calendar time;
 
     // UI variables
     protected Toolbar mainToolbar;
@@ -44,10 +50,15 @@ public class ProfileActivity extends AppCompatActivity {
     protected DatabaseHelper dbHelper;
     protected List<Reading> readingsList;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_profile);
+
+        user_name = (String) getIntent().getStringExtra("name");
+        time = Calendar.getInstance();
 
         setupUI();
     }
@@ -64,6 +75,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         // setup the listview
         loadReadingsListView();
+        int currentHour = (int)time.get(Calendar.HOUR_OF_DAY);
+
+        if (currentHour > 17) {
+            profile_name_tv.setText("Good evening, "+ user_name);
+        } else if (currentHour > 12) {
+            profile_name_tv.setText("Good afternoon, "+ user_name);
+        } else {
+            profile_name_tv.setText("How's it going, "+ user_name +"!");
+        }
 
         // set up readings button
         new_reading_button.setOnClickListener(new View.OnClickListener() {

@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BreathalyzerApp">
         <activity
+            android:name=".Views.AboutActivity"
+            android:exported="false"
+            android:parentActivityName=".Views.MainActivity" />
+        <activity
             android:name=".Views.UndrunkActivity"
             android:exported="false"
             android:parentActivityName=".Views.ProfileActivity" />

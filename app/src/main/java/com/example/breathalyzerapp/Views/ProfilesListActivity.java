@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -41,9 +43,11 @@ public class ProfilesListActivity extends AppCompatActivity {
     protected DatabaseHelper dbHelper;
     protected List<User> userList;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_profiles_list);
 
         setupUI();
@@ -114,24 +118,9 @@ public class ProfilesListActivity extends AppCompatActivity {
        mainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {// int i is position and long l is id
-               if(i==0){
-                   startActivity(new Intent(ProfilesListActivity.this,ProfileActivity.class));
-               }
-               else if(i==1){
-                   startActivity(new Intent(ProfilesListActivity.this,ProfileActivity.class));
-               }
-               else if(i==2){
-                   startActivity(new Intent(ProfilesListActivity.this,ProfileActivity.class));
-               }
-               else if(i==3){
-                   startActivity(new Intent(ProfilesListActivity.this,ProfileActivity.class));
-               }
-               else if(i==4){
-                   startActivity(new Intent(ProfilesListActivity.this,ProfileActivity.class));
-               }
-               else {
-
-               }
+               Intent intent = new Intent(ProfilesListActivity.this, ProfileActivity.class);
+               intent.putExtra("name", userList.get(i).getFirstname());
+               startActivity(intent);
            }
        });
     }

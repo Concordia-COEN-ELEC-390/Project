@@ -4,57 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.ProfilesListActivity">
+    tools:context=".Views.ProfilesListActivity"
+    android:screenOrientation="portrait"
+    >
+
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        >
 
         <include
-            layout="@layout/main_activity_toolbar"
-            android:id="@+id/main_toolbar" />
+            android:id="@+id/main_toolbar"
+            layout="@layout/main_activity_toolbar" />
+
+
+        <View
+            android:id="@+id/rounded_rect_main"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/rounded_rect"
+            />
 
         <ImageView
             android:id="@+id/logoImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:layout_below="@+id/main_toolbar"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:contentDescription="App logo"
             android:layout_centerHorizontal="true"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="App logo"
+            app:srcCompat="@drawable/in_app_icon" />
 
         <TextView
-            android:id="@+id/reading_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/logoImageView"
-            android:layout_marginStart="125dp"
-            android:textSize="18sp"
-            />
+            android:layout_above="@+id/logoImageView"
+            android:layout_centerHorizontal="true"
+            android:text="DrinkSafe"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/to_profiles_btn"
-            android:layout_width="wrap_content"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/logoImageView"
+            android:layout_below="@+id/rounded_rect_main"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#2c2c54"
             android:text="View Profiles"
+            android:textSize="24sp" />
 
+        <Button
+            android:id="@+id/to_about_btn"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/to_profiles_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#2c2c54"
+            android:text="About"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/to_profiles_btn"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="250dp"
-            android:textSize="18sp"
-            android:text="Version 1.2"
-            />
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="Version 1.2 (Final Demo)"
+            android:textSize="16sp" />
 
 
     </RelativeLayout>

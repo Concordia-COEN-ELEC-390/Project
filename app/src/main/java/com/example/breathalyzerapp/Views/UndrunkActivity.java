@@ -1,7 +1,5 @@
 package com.example.breathalyzerapp.Views;
 
-import static java.lang.Math.round;
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,6 +9,8 @@ import com.jjoe64.graphview.GraphView;  // source - https://www.geeksforgeeks.or
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -28,9 +28,13 @@ public class UndrunkActivity extends AppCompatActivity {
     private Calendar time;
     private Calendar safeToDriveAt;
     private String safeTimeStr;
+
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_undrunk);
         time = Calendar.getInstance();
         safeToDriveAt = Calendar.getInstance();
@@ -90,7 +94,7 @@ public class UndrunkActivity extends AppCompatActivity {
         timeEstimateTextView = (TextView) findViewById(R.id.timeTextView);
 
 
-        currentBACTextView.setText("Your current BAC is "+currentBAC);
+        currentBACTextView.setText("Your current BAC is\n\t"+currentBAC+" g/100ml");
 
         safeToDriveAt.add(Calendar.HOUR_OF_DAY, (int)timeEstimate);
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
