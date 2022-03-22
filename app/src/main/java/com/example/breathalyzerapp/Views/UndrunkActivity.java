@@ -105,7 +105,7 @@ public class UndrunkActivity extends AppCompatActivity {
             currentBACTextView.setTextColor(Color.RED);
             timeEstimateTextView.setText("You can drive at "+safeTimeStr+"h");
         } else if (currentBAC > 0.08) {
-            currentBACTextView.setTextColor(Color.rgb(255, 215, 0));
+            currentBACTextView.setTextColor(Color.rgb(255, 170, 0));
             timeEstimateTextView.setText("You can drive at "+safeTimeStr+"h");
         } else {
             timeEstimateTextView.setText("You can drive!");
