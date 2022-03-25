@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
-        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_profile.xml" value="0.34601449275362317" />
-        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_profiles_list.xml" value="0.2953125" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/drawable/plot_rect.xml" value="0.315" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/drawable/rounded_rect.xml" value="0.2725" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_about.xml" value="0.365625" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_main.xml" value="0.46822916666666664" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_profile.xml" value="0.46822916666666664" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_profiles_list.xml" value="0.46822916666666664" />
         <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/activity_undrunk.xml" value="0.35833333333333334" />
-        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_reading.xml" value="0.22" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_insert_user.xml" value="0.4927536231884058" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/fragment_reading.xml" value="0.46822916666666664" />
         <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/main_activity_toolbar.xml" value="0.3723958333333333" />
+        <entry key="..\:/Users/Anthony/AndroidStudioProjects/Project/app/src/main/res/layout/rounded_rect.xml" value="0.22745694022289767" />
         <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.308" />
         <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/layout/activity_main.xml" value="0.38385416666666666" />
         <entry key="..\:/Users/okevl/AndroidStudioProjects/Final Project/app/src/main/res/layout/activity_profile.xml" value="0.1693548387096774" />

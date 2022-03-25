@@ -3,53 +3,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".Views.readingFragment">
+    tools:context=".Views.readingFragment"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/reading_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50sp"
-        android:text="Reading: "
-        android:textSize="24sp"/>
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Live Reading: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/reading_value_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="20dp"
         android:layout_toRightOf="@+id/reading_tv"
-        android:layout_above="@+id/readingSaveButton"
-        android:text="val"
-        android:textSize="24sp"/>
-
-    <Button
-        android:id="@+id/readingSaveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reading_tv"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="16sp"
-        android:text=" SAVE  "
-        android:textSize="16sp" />
+        android:text="Value"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/readingCancelButton"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/reading_tv"
         android:layout_marginStart="16sp"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="#F44336"
         android:text="CANCEL"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/readingSaveButton"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reading_tv"
+        android:layout_toRightOf="@+id/readingCancelButton"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#2c2c54"
+        android:text=" SAVE  "
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/whenToDriveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reading_tv"
-        android:layout_marginTop="70sp"
-        android:layout_marginStart="40sp"
-        android:layout_marginEnd="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
         android:text="When Can I Drive?"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="#2c2c54"
         android:textSize="16sp" />
 
 </RelativeLayout>

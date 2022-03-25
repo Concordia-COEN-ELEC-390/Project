@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragmentLayout">
+    android:id="@+id/fragmentLayout"
+    android:screenOrientation="portrait"
+    >
 
    <EditText
        android:id="@+id/firstName_editText"
@@ -69,6 +71,7 @@
 
  <Button
      android:id="@+id/userSaveButton"
+     style="@style/Widget.Material3.Button"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_alignRight="@id/weight_fragment_editText"
@@ -76,10 +79,12 @@
      android:layout_marginTop="64dp"
      android:layout_marginEnd="16dp"
      android:text=" SAVE  "
+     android:backgroundTint="#2c2c54"
      android:textSize="16sp" />
 
  <Button
      android:id="@+id/userCancelButton"
+     style="@style/Widget.Material3.Button"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_below="@id/weight_fragment_editText"
@@ -89,6 +94,7 @@
      android:layout_marginRight="60dp"
      android:layout_marginBottom="16dp"
      android:text="CANCEL"
+     android:backgroundTint="#F44336"
      android:textSize="16sp" />
 
 

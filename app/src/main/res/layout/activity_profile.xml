@@ -4,31 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.ProfileActivity">
+    tools:context=".Views.ProfileActivity"
+    android:screenOrientation="portrait"
+    >
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+
+
+        <View
+            android:id="@+id/rounded_rect_main"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_rect" />
 
         <include
             android:id="@+id/main_toolbar"
             layout="@layout/main_activity_toolbar" />
 
         <TextView
-            android:id="@+id/profileName_TV"
+            android:id="@+id/profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/main_toolbar"
-            android:layout_centerHorizontal="true"
-            android:textSize="24sp"
-            android:text="Profile Name" />
+            android:layout_marginStart="10dp"
+            android:text="Your Profile"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/profileName_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_text"
+            android:layout_marginBottom="20sp"
+            android:layout_marginStart="10dp"
+            android:text="Profile Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/prev_readings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileName_TV"
+            android:layout_marginStart="10dp"
+            android:text="Your previous readings"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <ListView
             android:id="@+id/readings_history_LV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profileName_TV"
-            android:layout_marginTop="-1dp"
+            android:layout_below="@+id/rounded_rect_main"
             android:dividerHeight="4dp"
             android:overScrollFooter="@color/cardview_dark_background"
             tools:ignore="MissingConstraints"
@@ -37,17 +71,17 @@
 
         <Button
             android:id="@+id/new_reading_button"
+            style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="160sp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="60sp"
+            android:backgroundTint="#2c2c54"
             android:scaleX="1.25"
             android:scaleY="1.25"
-            android:text="New Reading"
-            android:textSize="18dp"
-            />
+            android:text="Take New Reading"
+            android:textSize="18dp" />
 
     </RelativeLayout>
 

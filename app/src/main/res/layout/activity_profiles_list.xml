@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.ProfilesListActivity">
+    tools:context=".Views.ProfilesListActivity"
+    android:screenOrientation="portrait"
+    >
     <RelativeLayout
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
@@ -21,6 +23,7 @@
             android:layout_below="@+id/main_toolbar"
             android:layout_centerHorizontal="true"
             android:text="Profiles"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp" />
 
         <ListView
@@ -43,7 +46,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="24sp"
             android:layout_marginBottom="24sp"
-            android:src="@drawable/ic_baseline_add_circle_24" />
+            android:src="@drawable/ic_baseline_add_circle_24"
+            app:backgroundTint="#2C2C54" />
 
 
     </RelativeLayout>
