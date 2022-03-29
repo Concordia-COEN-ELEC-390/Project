@@ -13,21 +13,22 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Live Reading: "
+        android:text="Live BAC Reading: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/reading_value_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="5sp"
         android:layout_marginBottom="20dp"
         android:layout_toRightOf="@+id/reading_tv"
         android:text="Value"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textStyle="bold"
         android:textSize="24sp" />
 
     <Button
@@ -57,14 +58,14 @@
 
     <Button
         android:id="@+id/whenToDriveButton"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:text="When Can I Drive?"
-        style="@style/Widget.Material3.Button"
         android:backgroundTint="#2c2c54"
+        android:text="When Can I Drive?"
         android:textSize="16sp" />
 
 </RelativeLayout>

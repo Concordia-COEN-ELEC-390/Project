@@ -76,13 +76,15 @@ public class ProfileActivity extends AppCompatActivity {
         // setup the listview
         loadReadingsListView();
         int currentHour = (int)time.get(Calendar.HOUR_OF_DAY);
-
+        if (user_name == null) {
+            user_name = "";
+        }
         if (currentHour > 17) {
-            profile_name_tv.setText("Good evening, "+ user_name);
+            profile_name_tv.setText("Good evening "+ user_name +".");
         } else if (currentHour > 12) {
-            profile_name_tv.setText("Good afternoon, "+ user_name);
+            profile_name_tv.setText("Good afternoon "+ user_name +".");
         } else {
-            profile_name_tv.setText("How's it going, "+ user_name +"!");
+            profile_name_tv.setText("How's it going "+ user_name +"!");
         }
 
         // set up readings button
@@ -116,7 +118,7 @@ public class ProfileActivity extends AppCompatActivity {
         for(int i =0; i< readingsList.size();i++){
             String readingsLine = "";
 
-            readingsLine += i+1 +".\t\t " + readingsList.get(i).getReadingValue() + ", " + readingsList.get(i).getTimestamp();
+            readingsLine += i+1 +".\t\tBAC of " + readingsList.get(i).getReadingValue() + ", on " + readingsList.get(i).getTimestamp();
 
             readingsListText.add(readingsLine);
 
