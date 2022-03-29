@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.breathalyzerapp.R;
 import com.jjoe64.graphview.GraphView;  // source - https://www.geeksforgeeks.org/line-graph-view-in-android-with-example/
+import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -61,7 +62,7 @@ public class UndrunkActivity extends AppCompatActivity {
     void setupPlot() {
         plot = findViewById(R.id.bacPlot);
         int xInitial = (int)time.get(Calendar.HOUR_OF_DAY);
-        int xFinal = (int) ((int)time.get(Calendar.HOUR_OF_DAY) + timeEstimate);                        // TODO this is not good
+        int xFinal = (int) ((int)time.get(Calendar.HOUR_OF_DAY) + timeEstimate);
 
         LineGraphSeries<DataPoint> data = new LineGraphSeries<DataPoint>(new DataPoint[] {
             new DataPoint(xInitial, currentBAC),
@@ -74,6 +75,8 @@ public class UndrunkActivity extends AppCompatActivity {
         });
         legalLine.setColor(Color.GREEN);
 
+        data.setTitle("Estimated BAC");
+        legalLine.setTitle("Legal Limit in Qc.");
         plot.setTitle("Your Blood Alcohol Level");
         plot.getGridLabelRenderer().setVerticalAxisTitle("BAC (g/100ml)");
         plot.getGridLabelRenderer().setHorizontalAxisTitle("Current Time (24hrs)");
@@ -86,14 +89,16 @@ public class UndrunkActivity extends AppCompatActivity {
         plot.getViewport().setMaxY(currentBAC+0.1);
         plot.getViewport().setYAxisBoundsManual(true);
         plot.getViewport().setXAxisBoundsManual(true);
-
+        plot.getLegendRenderer().setVisible(true);
+        plot.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
     }
 
     void setupTextViews() {
+        /*
+        Set the top text views to represent current/updated values.
+         */
         currentBACTextView = (TextView) findViewById(R.id.currentReadingTextView);
         timeEstimateTextView = (TextView) findViewById(R.id.timeTextView);
-
-
         currentBACTextView.setText("Your current BAC is\n\t"+currentBAC+" g/100ml");
 
         safeToDriveAt.add(Calendar.HOUR_OF_DAY, (int)timeEstimate);

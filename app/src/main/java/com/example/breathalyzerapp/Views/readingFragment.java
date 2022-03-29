@@ -25,12 +25,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class readingFragment extends DialogFragment {
     protected TextView reading_TV, reading_value_tv;
     protected Button readingCancelButton, readingsSaveButton, undrunkButton;
     protected double readingVal = 0.0;
+    protected Calendar date;
+    protected SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-YYYY, hh:mm");
 
     public readingFragment() {
         // Required empty public constructor
@@ -42,6 +46,9 @@ public class readingFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_reading, container, false);
         read();
+
+        date = Calendar.getInstance();
+
 
         // ViewByIDs
         reading_TV = view.findViewById(R.id.reading_tv);
@@ -57,7 +64,7 @@ public class readingFragment extends DialogFragment {
             public void onClick(View view) {
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(getActivity());
-                databaseHelper.insertReading(new Reading(readingVal,"Date"));
+                databaseHelper.insertReading(new Reading(readingVal,dateFormatter.format(date.getTime())));
                 ((ProfileActivity) getActivity()).loadReadingsListView();
                 Objects.requireNonNull(getDialog()).dismiss();
             }
@@ -75,7 +82,7 @@ public class readingFragment extends DialogFragment {
         undrunkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UndrunkCalc temp = new UndrunkCalc(readingVal, 24, 75, Sex.MALE);           // TODO this properly eventually (right input not just defaults)
+                UndrunkCalc temp = new UndrunkCalc(readingVal, 24, 75, Sex.MALE);
                 Intent intent = new Intent(getActivity(), UndrunkActivity.class);
                 intent.putExtra("initialBAC", temp.getInitialBAC());
                 intent.putExtra("timeEstimate", temp.getEstimatedLegalTime());
@@ -94,8 +101,8 @@ public class readingFragment extends DialogFragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
                     Double sensorVal = snapshot.getValue(Double.class);
-                    readingVal = sensorVal;
-                    String sensorString = Double.toString(sensorVal);
+                    readingVal = (double) Math.round(sensorVal*1000) /1000;
+                    String sensorString = Double.toString(readingVal);
                     reading_value_tv.setText(sensorString);
                 } catch (NullPointerException npe){
                     reading_value_tv.setText("");
